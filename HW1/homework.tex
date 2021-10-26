@@ -193,7 +193,33 @@ $\strut#1$\kern.25em\smash{\raise.3ex\hbox{$\big)$}}$\mkern-8mu
     \section*{Problem 7(b)}
     Find a DFA to accept $L = L\left( ab^* a^*\right) \cap L\left( b^*ab \right)$
 
-    \begin{figure}[ht] % ’ht’ tells LaTeX to place the figure ’here’ or at the top of the page
+    Because this is the intersection of two languages, any string in the language must be accepted by both regular expressions.
+    The first language \emph{must} start with $a$, so the $b^*$ in the second language can be ignored.
+    The \emph{only} string that begins with $a$ that is accepted by the second language is $ab$, which is also accepted by the first language, so this must be the only string in the language. Thus, we have a trivial DFA.
+
+   \begin{figure}[ht] % ’ht’ tells LaTeX to place the figure ’here’ or at the top of the page
+        \centering % centers the figure
+        \begin{tikzpicture}
+
+            \node[state, initial] (i) {$i$};
+            \node[state, right of=i] (a) {$a$};
+            \node[state, right of=a, accepting] (b) {$ab$};
+	    \node[state, right of=i, yshift=-2cm] (x) {$x$};
+            \draw   (i) edge[above] node{a} (a)
+                    (a) edge[above] node{b} (b)
+			(i) edge[below] node{b} (x)
+			(a) edge[right] node{a} (x)
+			(b) edge[below, bend left] node{a} (x)
+			(b) edge[above] node{b} (x)           
+			(x) edge[loop below] node{a, b} (x)         
+;
+        \end{tikzpicture}
+        \caption*{}
+        \label{fig:p7triv}
+    \end{figure}
+
+  \iffalse
+	  \begin{figure}[ht] % ’ht’ tells LaTeX to place the figure ’here’ or at the top of the page
         \centering % centers the figure
         \begin{tikzpicture}
 
@@ -378,4 +404,5 @@ $\strut#1$\kern.25em\smash{\raise.3ex\hbox{$\big)$}}$\mkern-8mu
         \caption*{Step 6, observe you forgot to give every node in the bottom branch an edge for every symbol, fix that.}
         \label{fig:p7bs6}
     \end{figure}
+\fi
 \end{document}
