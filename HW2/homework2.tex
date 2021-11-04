@@ -1,0 +1,105 @@
+\documentclass{report}
+
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage{amsmath}
+\usepackage[linguistics]{forest}
+\usepackage[shortlabels]{enumitem}
+\usepackage{caption}
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning, arrows}
+\tikzset{
+->, % makes the edges directed
+>=stealth, % makes the arrow heads bold
+node distance=2cm, % specifies the minimum distance between two nodes. Change if necessary.
+every state/.style={thick, fill=gray!10}, % sets the properties for each ’state’ node
+initial text=$ $, % sets the text that appears on the start arrow
+}
+
+\newcommand\Mydiv[2]{%
+$\strut#1$\kern.25em\smash{\raise.3ex\hbox{$\big)$}}$\mkern-8mu
+        \overline{\enspace\strut#2}$}
+
+\newcommand{\doubleol}[1]{\overline{\overline{#1}}}
+
+
+\pagestyle{fancy}
+\fancyhf{Aaron Pierce}
+\rhead{\today}
+% DON'T FORGET TO CHANGE THIS vvvvvvvvvvv
+\lhead{CS-3823 Homework 4}
+% DON'T FORGET TO CHANGE THIS ^^^^^^^^^^^
+\fancyfoot{}
+
+
+\begin{document}
+
+\section*{Problem 1(a)}
+\textbf{Find the Regex for the complement language of L($\mathbf{aa^*bb^*}$)}
+
+
+The essense of the regex is 1 or more $a$ followed by 1 or more $b$, so the complement is a string that has zero $a$ and/or zero $b$, or any instance of $ba$, becuase it violates the order.
+
+So the regex is: $a^* + b^* + (a+b)^* \, ba \, (a+b)^*$
+
+\section*{Problem 4}
+\textbf{Show that if a language family is closed under union and complementation, it must also be closed under intersection.}
+
+If $L = L_1 \cap L_2$, then $L = \doubleol{L_1 \cap L_2}$ which is $ \overline{\overline{L_1} \cup \overline{L_2}}$, by DeMorgan's law.
+This is expressed using only union and complementation, which regular languages are closed over, so regular languages must also be closed under union because it can be expressed via other closed operations
+
+\section*{Problem 10}
+
+\textbf{Show that regular languages are closed under symmetric difference}
+
+The symmetric difference is defined by $\left( L_1 - \left( L_1 \cap L_2 \right) \right) \cup \left( L_2 - \left( L_1 \cap L_2 \right) \right)$, creating a set of elements that are in only one of the two input sets.
+
+Regular languages are closed under difference, as if $L = L_1 - L_2$, then $L = L_1 \cap \overline{L_2}$
+
+We just showed that regular languages are closed under union, using the fact that they are closed under intersect and complement, so because we can represent the symmetric difference exclusively using operators unver which regular languages are closed, symmetric difference is also closed
+
+
+\section*{Problem 3}
+
+\textbf{Find an algorithm to determine whether a given regular language $\mathbf{L}$ is a palindrome language.}
+
+The general idea is that the NFA that accepts a string in $L$ should accept its reverse, too. We know that reglangs are effectively closed under reversal, so this is possible.
+
+For an NFA $M$ that defines $L$, construct another NFA $M^R$ as follows:
+\begin{enumerate}
+	\item Create a copy of M and reverse all edges, call this $M^R$
+	\item Add a new state $I$ and a new state $F$ to $M^R$
+	\item Add epsilon transitions from $I$ to all accepting states in $M^R$
+	\item Add epsilon transitions from the initial state of $M^R$ to $F$ 
+	\item Designate $F$ as the only accepting state, and $I$ as the only initial state
+\end{enumerate}
+
+This generates an NFA $M^R$ which accepts $L^R$. A language is palindromic if $L(M) = L(M \cap M^R)$. This is decidable, being an instance of the  equivalence problem, so you can apply the algorithm to solve the equivalence problem and decide whether or not $L$ is palindromic using this equivalence
+
+\section*{Problem 6}
+\textbf{Show that there exists an algorithm to determine whether $\mathbf{L_1}$ is a proper subset of $\mathbf{L_2}$ for any regular languages $\mathbf{L_1}$ and $\mathbf{L_2}$.}
+
+$L_1$ is a proper subset of $L_2$ iff $L_1 \subseteq L_2$ and $L_1 \neq L_2$. $L_1 \subseteq L_2$ is decidable, as it is equivalent to $L_1 \cap \overline{L_2} = \O$, which uses exclusively operations that reglangs are effectively closed under. $L_1 \neq L_2$ is also decidable, as equivalence is decidable and you can take the opposite of whatever the decision is to find non-equivalence.
+
+Thus, there exists an algorithm to determine proper subset-ness, as there exists an algorithm to determine whether $L_1$ is a subset of $L_2$ and an algorithm to determine if they are equal.
+
+\section*{Problem 15}
+\textbf{Find an algorithm to determine whether a regular language L contains a finite number of even-length strings.}
+
+Let $\Sigma = \left\{ \sigma_1, \sigma_2, \dots \right\}$ be the alphabet over which $L$ is constructed. 
+
+Let $M = \left(Q, \Sigma, \delta, q_o, F \right)$  be an NFA
+where $Q = \left\{ \text{init}, \text{loop} \right\}$, $q_o = \text{init}$, $F = \text{loop}$, and $\delta$ is defined as follows:
+
+$\delta(\text{init}, x) = \text{loop}$ for all $x \in \Sigma$, and $\delta^*(\text{loop}, uv) = \text{loop}$ for all $u, \, v \in \Sigma$.
+
+Let $L_\text{odd} = L(M)$, a language which consists of all odd-length strings over $\Sigma$.
+
+A language $L$ consists of a finite number of even-length strings if $L - L_\text{odd}$ is finite, which is a decidable problem as mentioned above (accomplished via a depth-first search to identify cycles)
+
+ 
+
+
+
+
+\end{document}
