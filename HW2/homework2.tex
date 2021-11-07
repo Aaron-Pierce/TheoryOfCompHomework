@@ -64,7 +64,7 @@ We just showed that regular languages are closed under union, using the fact tha
 
 \textbf{Find an algorithm to determine whether a given regular language $\mathbf{L}$ is a palindrome language.}
 
-The general idea is that the NFA that accepts a string in $L$ should accept its reverse, too. We know that reglangs are effectively closed under reversal, so this is possible.
+The general idea is that the NFA that accepts a string in $L$ should accept its reverse, too. We know that reglangs are effectively closed under reversal, so this is possible. This is hard to show algorithmically. You can't feed every string through a machine and see if its reverse is also accepted. Instead, we'll create a machine that accepts the reverse of a language, and see if those machines define the same language. Here goes!
 
 For an NFA $M$ that defines $L$, construct another NFA $M^R$ as follows:
 \begin{enumerate}
@@ -75,14 +75,21 @@ For an NFA $M$ that defines $L$, construct another NFA $M^R$ as follows:
 	\item Designate $F$ as the only accepting state, and $I$ as the only initial state
 \end{enumerate}
 
-This generates an NFA $M^R$ which accepts $L^R$. A language is palindromic if $L(M) = L(M \cap M^R)$. This is decidable, being an instance of the  equivalence problem, so you can apply the algorithm to solve the equivalence problem and decide whether or not $L$ is palindromic using this equivalence
+This generates an NFA $M^R$ which accepts $L^R$. A language is palindromic if $L(M) = L(M^R)$. This is decidable, being an instance of the equivalence problem, so you can apply the algorithm to solve the equivalence problem and decide whether or not $L$ is palindromic using this equivalence.
+
+The equivalence problem is decidable because $L(M) = L(M^R)$ is equivalent to showing that $L(M) \subseteq L(M^R)$ and   $L(M^R) \subseteq L(M)$.
+That is decidable, as we will show in problem 6.
+
+So overall, the algorithm is to generate $M^R$ as directed above and compare it to $M$.
 
 \section*{Problem 6}
 \textbf{Show that there exists an algorithm to determine whether $\mathbf{L_1}$ is a proper subset of $\mathbf{L_2}$ for any regular languages $\mathbf{L_1}$ and $\mathbf{L_2}$.}
 
-$L_1$ is a proper subset of $L_2$ iff $L_1 \subseteq L_2$ and $L_1 \neq L_2$. $L_1 \subseteq L_2$ is decidable, as it is equivalent to $L_1 \cap \overline{L_2} = \O$, which uses exclusively operations that reglangs are effectively closed under. $L_1 \neq L_2$ is also decidable, as equivalence is decidable and you can take the opposite of whatever the decision is to find non-equivalence.
+$L_1$ is a proper subset of $L_2$ iff $L_1 \subseteq L_2$ and $L_1 \neq L_2$. $L_1 \subseteq L_2$ is decidable, as it is equivalent to $L_1 \cap \overline{L_2} = \O$, which only uses operations that reglangs are effectively closed under. $L_1 \neq L_2$ is also decidable, as equivalence is decidable and you can take the opposite of whatever the decision is to find non-equivalence.
 
-Thus, there exists an algorithm to determine proper subset-ness, as there exists an algorithm to determine whether $L_1$ is a subset of $L_2$ and an algorithm to determine if they are equal.
+Equality being decidable is given by  $L(M) = L(M^R) \iff L(M) \subseteq L(M^R) \text{ and } L(M^R) \subseteq L(M)$
+
+Thus, there exists an algorithm to determine proper subset-ness, as there exists an algorithm to determine whether $L_1$ is a subset of $L_2$ and an algorithm to determine if they are equal, both of which we have construted here.
 
 \section*{Problem 15}
 \textbf{Find an algorithm to determine whether a regular language L contains a finite number of even-length strings.}
@@ -114,7 +121,9 @@ Why not include a diagram at this point:
 
 Let $L_\text{odd} = L(M)$, a language which consists of all odd-length strings over $\Sigma$.
 
-A language $L$ consists of a finite number of even-length strings if $L - L_\text{odd}$ is finite, which is a decidable problem as mentioned above (accomplished via a depth-first search to identify cycles in an accepting DFA or NFA)
+A language $L$ consists of a finite number of even-length strings if $L - L_\text{odd}$ is finite, which is a decidable, accomplished via a depth-first search to identify cycles in an accepting DFA or NFA.
+
+So because we can construct $L_\text{odd}$ which is the subset of odd-length strings from $L$, and regular languages are closed under difference, we can perform the algorithm to decide whether or not $L - L_\text{odd}$ is finite, thus deciding whether or not $L$ contains a finite number of even-length strings.
 
  
 \section*{Problem 2}
@@ -161,8 +170,6 @@ So we are unioning a potentially regular language $L_2$ with a definitely irregu
 The hypothetical NFA that could accept $L_1 \cup L_2$ will not be able to accept strings from $L_1$, but those strings are also in $L$.
 
 Because an NFA cannot possibly accept $L_1 \cup L_2$, it must be irregular.
-
-Another fun way to express this is to assert that irregular languages are closed under union, and $L_1$ is irregular.
 
 
 
