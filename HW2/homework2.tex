@@ -148,65 +148,101 @@ Because $w = a^n b^n c^n$ is a string in $L$, but cannot be pumped, $L$ cannot b
 
 
 \section*{Problem 5(c)}
-
 \textbf{Prove the irregularity of: $\mathbf{L = \left\{a^n b^l a^k \, : \,  n = l \text{ or } l \neq k \right\}}$}
 
-I'll spare you the repetition of the pumping lemma which I just spit out last problem.
-The key is that given \textbf{any} string in $L$, we can pump it \textbf{zero or more} times to make another string in $L$.
 
-So if you hand me $a^{n}$, for some sufficiently large $n$, the string is in $L$ but I cannot pump any of its substrings.
+We can represent L as $L_1 \cup L_2$ where:
 
-The string is in $L$ by setting $n=n$, $l=0$ and $k = 0$.
+$L_1 = \left\{ a^n b^n a^k \right\}$ and $ L_2 = \left\{ a^n b^l a^k \, : \, n \neq k\right\}$
 
-\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+We know $L_1$ is not regular. $a^n b^n$ is a perfectly valid string in $L_1$, yet it cannot be pumped. Any selection of a single type of character upsets balance, choosing a substring with both $a$'s and $b$'s upsets order.
 
+So we are unioning a potentially regular language $L_2$ with a definitely irregular language $L_1$. This will produce an irregular language.
+The hypothetical NFA that could accept $L_1 \cup L_2$ will not be able to accept strings from $L_1$, but those strings are also in $L$.
 
-I'll spare you the repetition of the pumping lemma which I just spit out last problem.
-The key is that given \textbf{any} string in $L$, we can pump it \textbf{zero or more} times to make another string in $L$.
+Because an NFA cannot possibly accept $L_1 \cup L_2$, it must be irregular.
 
-So if you hand me $a^{v+1} b^v a^{v+1}$, for some sufficiently large $v$, the string is in $L$ but I cannot pump any of its substrings.
-
-If my pumping substring contains both $a$'s and $b$'s, pumping it multiple times violates the order of the string, so my pumping string must exclusively consist of $a$'s or $b$'s.
-
-If my substring comes exclusively from the first term, $a^n$, then pumping it more than zero times will result in $n > l$, which violates $n = l$.
-
-If my substring comes exclusively from the middle term, $b^l$, then I could pump a single character for it to generate a string in $L$, but I need to be able to pump it an arbitrary amount of times. Pumping it any number of times more than $1$ results in 
+Another fun way to express this is to assert that irregular languages are closed under union, and $L_1$ is irregular.
 
 
-\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
-
-I'll spare you the repetition of the pumping lemma which I just spit out last problem.
-The key is that given \textbf{any} string in $L$, we can pump it \textbf{zero or more} times to make another string in $L$.
-
-So if you hand me $a^n b^l$, you have handed me a string in $L$ where $k = 0$.
-
-I cannot pump this string. I either need to achieve $n = l$ or $l \neq k$
-
-If my goal is to pump $n$ to equal $l$ I can't do it. If my pumping string has both symbols in it the order will be violated, and if it doesn't I can pump one string
-$l + 1$ times and it's over. They can't possibly be equal.
-
-If my goal is to pump so that $l \neq k$, that's a little easier. I just pump the $a^n$ part freely, right?
-
-Wrong. Take a look at the string $a^n b^l a^l$.
-
-If my substring contains only symbols beloi
 
 
-\subsection*{Big case 1: $\mathbf{n = l}$}
-When $n = l$ you can just select any section of $a^k$ to be your pumping string, which will generate more strings in $L$, which makes this language smell a little regular. 
-However, $k$ can be 0, and you can't pump a zero-length string.
-
-But it gets deeper, if $k = 0$ and $n = l$ then $l$ must be greater than 0 in order for the total string length to be greater than our pumping constant, so it must be the case that $l \neq k$, which forms...
-
-\subsection*{Big case 2: $\mathbf{l \neq k}$} 
-
-When $l \neq k$, we must show that any substring can be pumped to force $l$ to equal $k$.
-
-There are two subcases to consider. First, you don't want to include any part of $a^k$ in your pumping substring because that will obviously ruin your chances of making $l = k$, which is our strategy in this contradiction, so we can safely ignore that case.
-
-So we arrive at.
-
-\subsubsection*{Big case 2 subcase 1: your pumping string contains only symbols from $\mathbf{a^n}$}
+%%%%%
+%
+%     A note to the reader,
+%	I spent an abhorrent amount of time on this problem. The solution was so simple and I completely
+%	overlooked it trying to use the pumping lemma on it the right way.
+%	I have left here all of my failed attempts at solving this problem, maintaining exactly the character I left off from,
+%	so that you may experience each individual train of thought derailing as I endured for hours.
+% 	It's really not that much, but let me tell you: it felt like much.
+%
+%%%%%
+%%%	
+%%%	\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+%%%	
+%%%	
+%%%	I'll spare you the repetition of the pumping lemma which I just spit out last problem.
+%%%	The key is that given \textbf{any} string in $L$, we can pump it \textbf{zero or more} times to make another string in $L$.
+%%%	
+%%%	So if you hand me $a^{n}$, for some sufficiently large $n$, the string is in $L$ but I cannot pump any of its substrings.
+%%%	
+%%%	The string is in $L$ by setting $n=n$, $l=0$ and $k = 0$, but when I want to pump the only thing I can select is some number of $a$'s.
+%%%	
+%%%	No matter how many times I repeat $a$, it will always be true that $l = k$, because they are both 0.
+%%%	
+%%%	Sure, you could pump the entirety of $a^n$ 0 times, so the string is empty, which is a string in $L$, but you need to be able to pump it any amount of times you want, so any value other than $0$ generates a string that is not in $L$.
+%%%	
+%%%	Becuase there is no substring of $a^n$ any number of times that can be pumped 
+%%%	
+%%%	\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+%%%	
+%%%	
+%%%	I'll spare you the repetition of the pumping lemma which I just spit out last problem.
+%%%	The key is that given \textbf{any} string in $L$, we can pump it \textbf{zero or more} times to make another string in $L$.
+%%%	
+%%%	So if you hand me $a^{v+1} b^v a^{v+1}$, for some sufficiently large $v$, the string is in $L$ but I cannot pump any of its substrings.
+%%%	
+%%%	If my pumping substring contains both $a$'s and $b$'s, pumping it multiple times violates the order of the string, so my pumping string must exclusively consist of $a$'s or $b$'s.
+%%%	
+%%%	If my substring comes exclusively from the first term, $a^n$, then pumping it more than zero times will result in $n > l$, which violates $n = l$.
+%%%	
+%%%	If my substring comes exclusively from the middle term, $b^l$, then I could pump a single character for it to generate a string in $L$, but I need to be able to pump it an arbitrary amount of times. Pumping it any number of times more than $1$ results in 
+%%%	
+%%%	
+%%%	\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+%%%	
+%%%	I'll spare you the repetition of the pumping lemma which I just spit out last problem.
+%%%	The key is that given \textbf{any} string in $L$, we can pump it \textbf{zero or more} times to make another string in $L$.
+%%%	
+%%%	So if you hand me $a^n b^l$, you have handed me a string in $L$ where $k = 0$.
+%%%	
+%%%	I cannot pump this string. I either need to achieve $n = l$ or $l \neq k$
+%%%	
+%%%	If my goal is to pump $n$ to equal $l$ I can't do it. If my pumping string has both symbols in it the order will be violated, and if it doesn't I can pump one string
+%%%	$l + 1$ times and it's over. They can't possibly be equal.
+%%%	
+%%%	If my goal is to pump so that $l \neq k$, that's a little easier. I just pump the $a^n$ part freely, right?
+%%%	
+%%%	Wrong. Take a look at the string $a^n b^l a^l$.
+%%%	
+%%%	If my substring contains only symbols beloi
+%%%	
+%%%	
+%%%	\subsection*{Big case 1: $\mathbf{n = l}$}
+%%%	When $n = l$ you can just select any section of $a^k$ to be your pumping string, which will generate more strings in $L$, which makes this language smell a little regular. 
+%%%	However, $k$ can be 0, and you can't pump a zero-length string.
+%%%	
+%%%	But it gets deeper, if $k = 0$ and $n = l$ then $l$ must be greater than 0 in order for the total string length to be greater than our pumping constant, so it must be the case that $l \neq k$, which forms...
+%%%	
+%%%	\subsection*{Big case 2: $\mathbf{l \neq k}$} 
+%%%	
+%%%	When $l \neq k$, we must show that any substring can be pumped to force $l$ to equal $k$.
+%%%	
+%%%	There are two subcases to consider. First, you don't want to include any part of $a^k$ in your pumping substring because that will obviously ruin your chances of making $l = k$, which is our strategy in this contradiction, so we can safely ignore that case.
+%%%	
+%%%	So we arrive at.
+%%%	
+%%%	\subsubsection*{Big case 2 subcase 1: your pumping string contains only symbols from $\mathbf{a^n}$}
 
 
 
