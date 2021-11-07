@@ -5,13 +5,14 @@
 \usepackage{amsmath}
 \usepackage[linguistics]{forest}
 \usepackage[shortlabels]{enumitem}
+\usepackage{float}
 \usepackage{caption}
 \usepackage{tikz}
 \usetikzlibrary{automata, positioning, arrows}
 \tikzset{
 ->, % makes the edges directed
 >=stealth, % makes the arrow heads bold
-node distance=2cm, % specifies the minimum distance between two nodes. Change if necessary.
+node distance=3cm, % specifies the minimum distance between two nodes. Change if necessary.
 every state/.style={thick, fill=gray!10}, % sets the properties for each ’state’ node
 initial text=$ $, % sets the text that appears on the start arrow
 }
@@ -89,15 +90,123 @@ Thus, there exists an algorithm to determine proper subset-ness, as there exists
 Let $\Sigma = \left\{ \sigma_1, \sigma_2, \dots \right\}$ be the alphabet over which $L$ is constructed. 
 
 Let $M = \left(Q, \Sigma, \delta, q_o, F \right)$  be an NFA
-where $Q = \left\{ \text{init}, \text{loop} \right\}$, $q_o = \text{init}$, $F = \text{loop}$, and $\delta$ is defined as follows:
+where $Q = \left\{ \text{init}, \text{loop}, \text{buffer} \right\}$, $q_o = \text{init}$, $F = \text{loop}$, and $\delta$ is defined as follows:
 
-$\delta(\text{init}, x) = \text{loop}$ for all $x \in \Sigma$, and $\delta^*(\text{loop}, uv) = \text{loop}$ for all $u, \, v \in \Sigma$.
+$\delta(\text{init}, \sigma) = \text{loop}$ for all $\sigma \in \Sigma$, $\delta(\text{loop}, \sigma) = \text{buffer}$ for all $\sigma \in \Sigma$,
+and $\delta(\text{buffer}, \sigma) = \text{loop}$ for all $\sigma \in \Sigma$.
+
+Why not include a diagram at this point:
+
+\begin{figure}[H] % ’ht’ tells LaTeX to place the figure ’here’ or at the top of the page
+        \centering % centers the figure
+        \begin{tikzpicture}
+
+            \node[state, initial] (i) {init};
+            \node[state, right of=i, accepting] (loop) {loop};
+            \node[state, right of=loop] (buffer) {buffer};
+            \draw   (i) edge[above] node{$\forall \sigma \in \Sigma$} (loop)
+                    (loop) edge[below, bend right] node{$\forall \sigma \in \Sigma$} (buffer)
+                    (buffer) edge[above, bend right] node{$\forall \sigma \in \Sigma$} (loop);
+        \end{tikzpicture}
+        \caption*{Call this M - it accepts any odd-length string over $\Sigma$}
+        \label{fig:p3}
+    \end{figure}
 
 Let $L_\text{odd} = L(M)$, a language which consists of all odd-length strings over $\Sigma$.
 
-A language $L$ consists of a finite number of even-length strings if $L - L_\text{odd}$ is finite, which is a decidable problem as mentioned above (accomplished via a depth-first search to identify cycles)
+A language $L$ consists of a finite number of even-length strings if $L - L_\text{odd}$ is finite, which is a decidable problem as mentioned above (accomplished via a depth-first search to identify cycles in an accepting DFA or NFA)
 
  
+\section*{Problem 2}
+
+Show that the language
+\textbf{$\mathbf{L = \left\{a^n b^k c^n \, : \, n \geq 0, k \geq n\right\}}$ is not regular.}
+
+Assume L is regular. For some value of $p$, strings of length $\geq p$ can be expressed in the form $w = xy^kz$, where $y$ is nonempty, $k \geq 0$ and $w \in L$, by the pumping lemma.
+
+
+Let $w = a^n b^n c^n$. $w$ is in $L$, as $k$ can be greater than \textbf{or equal} to $n$.
+
+You can select substrings $xyz$ in three ways:
+\begin{enumerate}
+\item $y$ contains only $a$'s, or $y$ contains only $c$'s
+\item $y$ contains only $b$'s
+\item $y$ contains both $b$'s and ($a$'s or $c$'s), or $y$ contains all three.
+\end{enumerate}
+
+In case 1, pumping $y$ more than one time will upset the balance, as there will be an unequal number of $a$'s and $c$'s
+
+In case 3, the order will be violated. If $y$ contains two unique types of characters, then pumping $y$ multiple times will result in $a$'s coming before $b$'s, or $c$'s coming before $b$'s, which violates the structure of the language
+
+In case 2, the exact statement of the pumping lemma becomes important. We get to pump $y$ any number of times, \textbf{including zero times}.
+So if we select $y$ to contain exclusively $b$'s, then you could pump $y$ zero times, resulting in the number of $b$'s begin less than $n$.
+This violates the structure.
+
+So no matter how you choose substrings to satisfy $w = xyz$ when $w = a^n b^n c^n$, you cannot pump $y$ in a way that generates another string in $L$.
+
+Because $w = a^n b^n c^n$ is a string in $L$, but cannot be pumped, $L$ cannot be regular.
+
+
+\section*{Problem 5(c)}
+
+\textbf{Prove the irregularity of: $\mathbf{L = \left\{a^n b^l a^k \, : \,  n = l \text{ or } l \neq k \right\}}$}
+
+I'll spare you the repetition of the pumping lemma which I just spit out last problem.
+The key is that given \textbf{any} string in $L$, we can pump it \textbf{zero or more} times to make another string in $L$.
+
+So if you hand me $a^{n}$, for some sufficiently large $n$, the string is in $L$ but I cannot pump any of its substrings.
+
+The string is in $L$ by setting $n=n$, $l=0$ and $k = 0$.
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+
+I'll spare you the repetition of the pumping lemma which I just spit out last problem.
+The key is that given \textbf{any} string in $L$, we can pump it \textbf{zero or more} times to make another string in $L$.
+
+So if you hand me $a^{v+1} b^v a^{v+1}$, for some sufficiently large $v$, the string is in $L$ but I cannot pump any of its substrings.
+
+If my pumping substring contains both $a$'s and $b$'s, pumping it multiple times violates the order of the string, so my pumping string must exclusively consist of $a$'s or $b$'s.
+
+If my substring comes exclusively from the first term, $a^n$, then pumping it more than zero times will result in $n > l$, which violates $n = l$.
+
+If my substring comes exclusively from the middle term, $b^l$, then I could pump a single character for it to generate a string in $L$, but I need to be able to pump it an arbitrary amount of times. Pumping it any number of times more than $1$ results in 
+
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+I'll spare you the repetition of the pumping lemma which I just spit out last problem.
+The key is that given \textbf{any} string in $L$, we can pump it \textbf{zero or more} times to make another string in $L$.
+
+So if you hand me $a^n b^l$, you have handed me a string in $L$ where $k = 0$.
+
+I cannot pump this string. I either need to achieve $n = l$ or $l \neq k$
+
+If my goal is to pump $n$ to equal $l$ I can't do it. If my pumping string has both symbols in it the order will be violated, and if it doesn't I can pump one string
+$l + 1$ times and it's over. They can't possibly be equal.
+
+If my goal is to pump so that $l \neq k$, that's a little easier. I just pump the $a^n$ part freely, right?
+
+Wrong. Take a look at the string $a^n b^l a^l$.
+
+If my substring contains only symbols beloi
+
+
+\subsection*{Big case 1: $\mathbf{n = l}$}
+When $n = l$ you can just select any section of $a^k$ to be your pumping string, which will generate more strings in $L$, which makes this language smell a little regular. 
+However, $k$ can be 0, and you can't pump a zero-length string.
+
+But it gets deeper, if $k = 0$ and $n = l$ then $l$ must be greater than 0 in order for the total string length to be greater than our pumping constant, so it must be the case that $l \neq k$, which forms...
+
+\subsection*{Big case 2: $\mathbf{l \neq k}$} 
+
+When $l \neq k$, we must show that any substring can be pumped to force $l$ to equal $k$.
+
+There are two subcases to consider. First, you don't want to include any part of $a^k$ in your pumping substring because that will obviously ruin your chances of making $l = k$, which is our strategy in this contradiction, so we can safely ignore that case.
+
+So we arrive at.
+
+\subsubsection*{Big case 2 subcase 1: your pumping string contains only symbols from $\mathbf{a^n}$}
 
 
 
