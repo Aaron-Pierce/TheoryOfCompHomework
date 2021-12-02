@@ -160,16 +160,31 @@ Because $w = a^n b^n c^n$ is a string in $L$, but cannot be pumped, $L$ cannot b
 \textbf{Prove the irregularity of: $\mathbf{L = \left\{a^n b^l a^k \, : \,  n = l \text{ or } l \neq k \right\}}$}
 
 
-We can represent L as $L_1 \cup L_2$ where:
+By the pumping lemma, we know that $|xy| \leq p$, the pumping constant.
 
-$L_1 = \left\{ a^n b^n a^k \right\}$ and $ L_2 = \left\{ a^n b^l a^k \, : \, n \neq k\right\}$
+Let $w = xyz = a^p b^p a^p$. $w$ is clearly in $L$ and has length $> p$.
 
-We know $L_1$ is not regular. $a^n b^n$ is a perfectly valid string in $L_1$, yet it cannot be pumped. Any selection of a single type of character upsets balance, choosing a substring with both $a$'s and $b$'s upsets order.
+$y$ can only consist of $a$'s. If you pump any number of a's any number of times, then the form will be upset.
 
-So we are unioning a potentially regular language $L_2$ with a definitely irregular language $L_1$. This will produce an irregular language.
-The hypothetical NFA that could accept $L_1 \cup L_2$ will not be able to accept strings from $L_1$, but those strings are also in $L$.
+If you pump $c$ copies of $a$ $i$ times, then your string is $a^{p-i} a^{ci} b^p a^p$.
 
-Because an NFA cannot possibly accept $L_1 \cup L_2$, it must be irregular.
+If $c$ is 2 and $i$ is 2 (i.e you pump 2 $a$'s 2 times), your string is $a^{p - 2} a^{4} b^p a^p$, which is equivalent to $a^{p+2} b^p a^p$, clearly breaking the form,
+as the first block of $a$'s is not equal in size to the middle block of $b$'s, and the middle block of $b$'s is equal in size to the last block of $a's$.
+
+Because the language contains infinitely many strings of the form $a^p b^p c^p$ that cannot be pumped, it is irregular.
+
+
+
+% We can represent L as $L_1 \cup L_2$ where:
+
+% $L_1 = \left\{ a^n b^n a^k \right\}$ and $ L_2 = \left\{ a^n b^l a^k \, : \, n \neq k\right\}$
+
+% We know $L_1$ is not regular. $a^n b^n$ is a perfectly valid string in $L_1$, yet it cannot be pumped. Any selection of a single type of character upsets balance, choosing a substring with both $a$'s and $b$'s upsets order.
+
+% So we are unioning a potentially regular language $L_2$ with a definitely irregular language $L_1$. This will produce an irregular language.
+% The hypothetical NFA that could accept $L_1 \cup L_2$ will not be able to accept strings from $L_1$, but those strings are also in $L$.
+
+% Because an NFA cannot possibly accept $L_1 \cup L_2$, it must be irregular.
 
 
 

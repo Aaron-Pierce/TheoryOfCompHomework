@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.19)  2 DEC 2021 13:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.19)  10 NOV 2021 09:28
 entering extended mode
-**c:/Users/amaxp/Projects/TheoryOfCompHomework/HW3/homework3.tex
-(c:/Users/amaxp/Projects/TheoryOfCompHomework/HW3/homework3.tex
+**c:/Users/amaxp/Projects/TheoryOfCompHomework/HW2/homework2.tex
+(c:/Users/amaxp/Projects/TheoryOfCompHomework/HW2/homework2.tex
 LaTeX2e <2020-10-01> patch level 1
 L3 programming layer <2020-10-05> xparse <2020-03-03> (C:\Users\amaxp\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
 Document Class: report 2020/04/10 v1.4m Standard LaTeX document class
@@ -461,75 +461,6 @@ Package caption Info: Standard document class detected.
 \c@caption@flags=\count316
 \c@continuedfloat=\count317
 Package caption Info: float package is loaded.
-) (C:\Users\amaxp\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
-Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
-\c@tracingmulticols=\count318
-\mult@box=\box86
-\multicol@leftmargin=\dimen270
-\c@unbalance=\count319
-\c@collectmore=\count320
-\doublecol@number=\count321
-\multicoltolerance=\count322
-\multicolpretolerance=\count323
-\full@width=\dimen271
-\page@free=\dimen272
-\premulticols=\dimen273
-\postmulticols=\dimen274
-\multicolsep=\skip62
-\multicolbaselineskip=\skip63
-\partial@page=\box87
-\last@line=\box88
-\maxbalancingoverflow=\dimen275
-\mult@rightbox=\box89
-\mult@grightbox=\box90
-\mult@gfirstbox=\box91
-\mult@firstbox=\box92
-\@tempa=\box93
-\@tempa=\box94
-\@tempa=\box95
-\@tempa=\box96
-\@tempa=\box97
-\@tempa=\box98
-\@tempa=\box99
-\@tempa=\box100
-\@tempa=\box101
-\@tempa=\box102
-\@tempa=\box103
-\@tempa=\box104
-\@tempa=\box105
-\@tempa=\box106
-\@tempa=\box107
-\@tempa=\box108
-\@tempa=\box109
-\@tempa=\box110
-\@tempa=\box111
-\@tempa=\box112
-\@tempa=\box113
-\@tempa=\box114
-\@tempa=\box115
-\@tempa=\box116
-\@tempa=\box117
-\@tempa=\box118
-\@tempa=\box119
-\@tempa=\box120
-\@tempa=\box121
-\@tempa=\box122
-\@tempa=\box123
-\@tempa=\box124
-\@tempa=\box125
-\@tempa=\box126
-\@tempa=\box127
-\@tempa=\box128
-\@tempa=\box129
-\c@minrows=\count324
-\c@columnbadness=\count325
-\c@finalcolumnbadness=\count326
-\last@try=\dimen276
-\multicolovershoot=\dimen277
-\multicolundershoot=\dimen278
-\mult@nat@firstbox=\box130
-\colbreak@box=\box131
-\mc@col@check@num=\count327
 ) (C:\Users\amaxp\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryautomata.code.tex
 File: tikzlibraryautomata.code.tex 2020/10/01 v3.1.6a (3.1.6a)
 ) (C:\Users\amaxp\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
@@ -538,36 +469,36 @@ File: tikzlibrarypositioning.code.tex 2020/10/01 v3.1.6a (3.1.6a)
 File: tikzlibraryarrows.code.tex 2020/10/01 v3.1.6a (3.1.6a)
  (C:\Users\amaxp\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\arrowsize=\dimen279
-)) (c:/Users\amaxp\Projects\TheoryOfCompHomework\HW3\homework3.aux)
-\openout1 = `homework3.aux'.
+\arrowsize=\dimen270
+)) (c:/Users\amaxp\Projects\TheoryOfCompHomework\HW2\homework2.aux)
+\openout1 = `homework2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
  (C:\Users\amaxp\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count328
-\scratchdimen=\dimen280
-\scratchbox=\box132
-\nofMPsegments=\count329
-\nofMParguments=\count330
+\scratchcounter=\count318
+\scratchdimen=\dimen271
+\scratchbox=\box86
+\nofMPsegments=\count319
+\nofMParguments=\count320
 \everyMPshowfont=\toks50
-\MPscratchCnt=\count331
-\MPscratchDim=\dimen281
-\MPnumerator=\count332
-\makeMPintoPDFobject=\count333
+\MPscratchCnt=\count321
+\MPscratchDim=\dimen272
+\MPnumerator=\count322
+\makeMPintoPDFobject=\count323
 \everyMPtoPDFconversion=\toks51
 ) (C:\Users\amaxp\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -575,31 +506,35 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+ [1{C:/Users/amaxp/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
 
-Overfull \hbox (67.60333pt too wide) in paragraph at lines 47--48
-\OT1/cmr/bx/n/10 Give a deriva-tion tree for $[]$ us-ing the gram-mar $[]$
+]
+
+LaTeX Warning: Command \O invalid in math mode on input line 88.
+
+
+Overfull \hbox (45.63861pt too wide) in paragraph at lines 90--91
+[]\OT1/cmr/m/n/10 Equality be-ing de-cid-able is given by $\OML/cmm/m/it/10 L\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 L\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M[]\OT1/cmr/m/n/10 )  \OMS/cmsy/m/n/10 ([])  \OML/cmm/m/it/10 L\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 L\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M[]\OT1/cmr/m/n/10 )[]\OML/cmm/m/it/10 L\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 
  []
 
 
-Overfull \hbox (11.25468pt too wide) in paragraph at lines 82--83
-\OT1/cmr/bx/n/10 Find a con-text free gram-mar for $[]$ 
+Overfull \hbox (2.61096pt too wide) in paragraph at lines 102--104
+[]$\OML/cmm/m/it/10 \OT1/cmr/m/n/10 ([]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 ) = []$ for all $\OML/cmm/m/it/10  \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 $, $\OML/cmm/m/it/10 \OT1/cmr/m/n/10 ([]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 ) = []$ for all $\OML/cmm/m/it/10  \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 $, and $\OML/cmm/m/it/10 \OT1/cmr/m/n/10 ([]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 ) =
  []
 
-[1{C:/Users/amaxp/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
-
-] [2] [3] [4] (c:/Users\amaxp\Projects\TheoryOfCompHomework\HW3\homework3.aux) ) 
+[2] [3] [4] (c:/Users\amaxp\Projects\TheoryOfCompHomework\HW2\homework2.aux) ) 
 Here is how much of TeX's memory you used:
- 25485 strings out of 480236
- 612963 string characters out of 2880557
- 886497 words of memory out of 3000000
- 41715 multiletter control sequences out of 15000+200000
- 537409 words of font info for 37 fonts, out of 3000000 for 9000
+ 25292 strings out of 480236
+ 608855 string characters out of 2880557
+ 880626 words of memory out of 3000000
+ 41527 multiletter control sequences out of 15000+200000
+ 537074 words of font info for 36 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 107i,18n,110p,1668b,1715s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\amaxp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on c:/Users\amaxp\Projects\TheoryOfCompHomework\HW3\homework3.pdf (4 pages, 113680 bytes).
+ 107i,11n,110p,1668b,888s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/amaxp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on c:/Users\amaxp\Projects\TheoryOfCompHomework\HW2\homework2.pdf (4 pages, 129572 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
+ 58 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
